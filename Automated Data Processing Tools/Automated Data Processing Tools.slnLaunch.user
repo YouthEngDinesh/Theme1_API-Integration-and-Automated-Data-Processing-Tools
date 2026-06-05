@@ -3,10 +3,6 @@
     "Name": "New Profile",
     "Projects": [
       {
-        "Path": "ServerApp\\ServerApp.csproj",
-        "Action": "Start"
-      },
-      {
         "Path": "ClientApp\\ClientApp.csproj",
         "Action": "Start"
       }
