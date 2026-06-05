@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "gByNQQIXqGs=",
+  "dgSpecHash": "el/aId5zPuo=",
   "success": true,
-  "projectFilePath": "C:\\Users\\dinesh\\Documents\\GitHub\\CSharpTraining\\GuptaDinesh\\Theme1_API-Integration-and-Automated-Data-Processing-Tools\\ClientApp\\Automated Data Processing Tools\\ServerApp\\ServerApp.csproj",
+  "projectFilePath": "C:\\Users\\dinesh\\Documents\\GitHub\\CSharpTraining\\GuptaDinesh\\Theme1_API-Integration-and-Automated-Data-Processing-Tools\\Automated Data Processing Tools\\ServerApp\\ServerApp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\dinesh\\.nuget\\packages\\dapper\\2.1.79\\dapper.2.1.79.nupkg.sha512",
     "C:\\Users\\dinesh\\.nuget\\packages\\microsoft.bcl.cryptography\\9.0.13\\microsoft.bcl.cryptography.9.0.13.nupkg.sha512",
