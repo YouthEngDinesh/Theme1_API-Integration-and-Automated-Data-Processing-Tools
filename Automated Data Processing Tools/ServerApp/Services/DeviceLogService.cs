@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ServerApp.Services
 {
-  class DeviceLogService
+    internal class DeviceLogService
     {
     }
 }
