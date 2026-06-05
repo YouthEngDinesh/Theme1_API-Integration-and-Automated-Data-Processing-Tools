@@ -1,5 +1,5 @@
 {
-  "version": 3,
+  "version": 4,
   "targets": {
     "net10.0": {
       "Dapper/2.1.79": {
@@ -1303,23 +1303,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\dinesh\\.nuget\\packages\\": {},
+    "C:\\Users\\Shibuyayuki\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\dinesh\\Documents\\GitHub\\CSharpTraining\\GuptaDinesh\\Theme1_API-Integration-and-Automated-Data-Processing-Tools\\Automated Data Processing Tools\\ServerApp\\ServerApp.csproj",
+      "projectUniqueName": "C:\\Users\\Shibuyayuki\\Desktop\\Theme1_API-Integration-and-Automated-Data-Processing-Tools\\Automated Data Processing Tools\\ServerApp\\ServerApp.csproj",
       "projectName": "ServerApp",
-      "projectPath": "C:\\Users\\dinesh\\Documents\\GitHub\\CSharpTraining\\GuptaDinesh\\Theme1_API-Integration-and-Automated-Data-Processing-Tools\\Automated Data Processing Tools\\ServerApp\\ServerApp.csproj",
-      "packagesPath": "C:\\Users\\dinesh\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\dinesh\\Documents\\GitHub\\CSharpTraining\\GuptaDinesh\\Theme1_API-Integration-and-Automated-Data-Processing-Tools\\Automated Data Processing Tools\\ServerApp\\obj\\",
+      "projectPath": "C:\\Users\\Shibuyayuki\\Desktop\\Theme1_API-Integration-and-Automated-Data-Processing-Tools\\Automated Data Processing Tools\\ServerApp\\ServerApp.csproj",
+      "packagesPath": "C:\\Users\\Shibuyayuki\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Shibuyayuki\\Desktop\\Theme1_API-Integration-and-Automated-Data-Processing-Tools\\Automated Data Processing Tools\\ServerApp\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\dinesh\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Shibuyayuki\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -1347,7 +1347,7 @@
         "auditLevel": "low",
         "auditMode": "all"
       },
-      "SdkAnalysisLevel": "10.0.200"
+      "SdkAnalysisLevel": "10.0.300"
     },
     "frameworks": {
       "net10.0": {
@@ -1387,7 +1387,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.204/PortableRuntimeIdentifierGraph.json",
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.300/PortableRuntimeIdentifierGraph.json",
         "packagesToPrune": {
           "Microsoft.CSharp": "(,4.7.32767]",
           "Microsoft.VisualBasic": "(,10.4.32767]",

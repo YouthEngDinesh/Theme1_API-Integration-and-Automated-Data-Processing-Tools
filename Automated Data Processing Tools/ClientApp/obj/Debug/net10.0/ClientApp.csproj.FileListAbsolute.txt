@@ -1,0 +1,6 @@
+C:\Users\Shibuyayuki\Desktop\Theme1_API-Integration-and-Automated-Data-Processing-Tools\Automated Data Processing Tools\ClientApp\obj\Debug\net10.0\ClientApp.csproj.AssemblyReference.cache
+C:\Users\Shibuyayuki\Desktop\Theme1_API-Integration-and-Automated-Data-Processing-Tools\Automated Data Processing Tools\ClientApp\obj\Debug\net10.0\ClientApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Shibuyayuki\Desktop\Theme1_API-Integration-and-Automated-Data-Processing-Tools\Automated Data Processing Tools\ClientApp\obj\Debug\net10.0\ClientApp.AssemblyInfoInputs.cache
+C:\Users\Shibuyayuki\Desktop\Theme1_API-Integration-and-Automated-Data-Processing-Tools\Automated Data Processing Tools\ClientApp\obj\Debug\net10.0\ClientApp.AssemblyInfo.cs
+C:\Users\Shibuyayuki\Desktop\Theme1_API-Integration-and-Automated-Data-Processing-Tools\Automated Data Processing Tools\ClientApp\obj\Debug\net10.0\ClientApp.csproj.CoreCompileInputs.cache
+C:\Users\Shibuyayuki\Desktop\Theme1_API-Integration-and-Automated-Data-Processing-Tools\Automated Data Processing Tools\ClientApp\obj\Debug\net10.0\ClientApp.sourcelink.json
