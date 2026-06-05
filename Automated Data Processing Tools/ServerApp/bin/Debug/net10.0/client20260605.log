@@ -1,1 +1,17 @@
 2026-06-05 18:47:06.701 +09:00 [INF] Request Received: {"Action":"GetAll","Id":0,"DeviceLog":null}
+2026-06-05 19:30:20.964 +09:00 [INF] Request Received: {"Action":"Add","Id":0,"DeviceLog":{"Id":0,"DeviceName":"Device-X","Amount":1111,"ErrorCode":"EXXX","Timestamp":"0001-01-01T00:00:00"}}
+2026-06-05 19:30:31.453 +09:00 [INF] Request Received: {"Action":"GetAll","Id":0,"DeviceLog":null}
+2026-06-05 19:31:12.309 +09:00 [INF] Request Received: {"Action":"Delete","Id":111,"DeviceLog":null}
+2026-06-05 19:31:14.499 +09:00 [INF] Request Received: {"Action":"GetAll","Id":0,"DeviceLog":null}
+2026-06-05 19:31:39.702 +09:00 [INF] Request Received: {"Action":"GetAll","Id":0,"DeviceLog":null}
+2026-06-05 19:32:08.233 +09:00 [INF] Request Received: {"Action":"GetAll","Id":0,"DeviceLog":null}
+2026-06-05 19:32:27.643 +09:00 [INF] Request Received: {"Action":"GetAll","Id":0,"DeviceLog":null}
+2026-06-05 19:59:00.450 +09:00 [INF] Request Received: {"Action":"Add","Id":0,"DeviceLog":{"Id":0,"DeviceName":"Device-Y","Amount":3030,"ErrorCode":"E333","Timestamp":"0001-01-01T00:00:00"}}
+2026-06-05 19:59:04.663 +09:00 [INF] Request Received: {"Action":"GetAll","Id":0,"DeviceLog":null}
+2026-06-05 19:59:36.463 +09:00 [INF] Request Received: {"Action":"Update","Id":0,"DeviceLog":{"Id":112,"DeviceName":"Device-Z","Amount":3333,"ErrorCode":"E3434","Timestamp":"0001-01-01T00:00:00"}}
+2026-06-05 19:59:40.090 +09:00 [INF] Request Received: {"Action":"GetAll","Id":0,"DeviceLog":null}
+2026-06-05 19:59:53.865 +09:00 [INF] Request Received: {"Action":"Delete","Id":112,"DeviceLog":null}
+2026-06-05 19:59:57.343 +09:00 [INF] Request Received: {"Action":"GetAll","Id":0,"DeviceLog":null}
+2026-06-05 20:00:24.558 +09:00 [INF] Request Received: {"Action":"GetAll","Id":0,"DeviceLog":null}
+2026-06-05 20:00:28.068 +09:00 [INF] Request Received: {"Action":"GetAll","Id":0,"DeviceLog":null}
+2026-06-05 20:00:34.246 +09:00 [INF] Request Received: {"Action":"GetAll","Id":0,"DeviceLog":null}

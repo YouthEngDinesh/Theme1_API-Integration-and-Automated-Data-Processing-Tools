@@ -36,75 +36,50 @@ namespace ServerApp
             }
         }
 
-        static void ProcessRequest(
-        HttpListenerContext context,
-        DeviceLogRepository repository)
+        static void ProcessRequest(HttpListenerContext context,DeviceLogRepository repository)
         {
+            HttpListenerRequest request = context.Request;
+            HttpListenerResponse response = context.Response;
+            if (request.HttpMethod != "POST")
+            {
+                response.StatusCode = (int)HttpStatusCode.MethodNotAllowed;
+                response.Close();
+                Log.Warning(
+                    "Invalid HTTP Method: {Method}",
+                    request.HttpMethod);
+                return;
+            }
+
             try
             {
-                HttpListenerRequest request =
-                    context.Request;
-
-                HttpListenerResponse response =
-                    context.Response;
-
-                using var reader =
-                    new StreamReader(
-                        request.InputStream);
-
-                string json =
-                    reader.ReadToEnd();
-
-                Log.Information(
-                    "Request Received: {Json}",
-                    json);
-
-                var requestObject =
-                    JsonSerializer.Deserialize
-                    <ClientRequest>(json);
-
+                using var reader = new StreamReader(request.InputStream);
+                string json = reader.ReadToEnd();
+                Log.Information("Request Received: {Json}", json);
+                var requestObject = JsonSerializer.Deserialize<ClientRequest>(json);
                 ApiResponse apiResponse = HandleAction(requestObject, repository);
-
-                string responseJson =
-                    JsonSerializer.Serialize(
-                        apiResponse);
-
-                byte[] buffer =
-                    Encoding.UTF8.GetBytes(
-                        responseJson);
-
-                response.ContentType =
-                    "application/json";
-
-                response.StatusCode = 200;
-
-                response.ContentLength64 =
-                    buffer.Length;
-
-                response.OutputStream.Write(
-                    buffer,
-                    0,
-                    buffer.Length);
-
+                string responseJson = JsonSerializer.Serialize(apiResponse);
+                byte[] buffer = Encoding.UTF8.GetBytes(responseJson);
+                response.ContentType ="application/json";
+                response.StatusCode = (int)HttpStatusCode.OK;
+                response.ContentLength64 = buffer.Length;
+                response.OutputStream.Write(buffer,  0, buffer.Length);
                 response.OutputStream.Close();
             }
             catch (Exception ex)
             {
-                Log.Error(ex,
-                    "Server Error");
+                Log.Error(ex,"Server Error");
+                response.StatusCode =(int)HttpStatusCode.InternalServerError;
+                response.Close();
             }
         }
 
-        static ApiResponse HandleAction(
-        ClientRequest request,
-        DeviceLogRepository repository)
+        static ApiResponse HandleAction( ClientRequest request,DeviceLogRepository repository)
         {
             switch (request.Action)
             {
                 case "Add":
 
-                    repository.Add(
-                        request.DeviceLog);
+                    repository.Add(request.DeviceLog);
 
                     return new ApiResponse
                     {
@@ -123,8 +98,7 @@ namespace ServerApp
 
                 case "Update":
 
-                    repository.Update(
-                        request.DeviceLog);
+                    repository.Update(request.DeviceLog);
 
                     return new ApiResponse
                     {
@@ -134,8 +108,7 @@ namespace ServerApp
 
                 case "Delete":
 
-                    repository.Delete(
-                        request.Id);
+                    repository.Delete(request.Id);
 
                     return new ApiResponse
                     {
