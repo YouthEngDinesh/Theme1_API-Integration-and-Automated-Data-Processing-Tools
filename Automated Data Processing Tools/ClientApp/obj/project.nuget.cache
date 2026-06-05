@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "zFipriSLgeg=",
+  "dgSpecHash": "QBcVaZIkqp0=",
   "success": true,
-  "projectFilePath": "C:\\Users\\dinesh\\Documents\\GitHub\\CSharpTraining\\GuptaDinesh\\Theme1_API-Integration-and-Automated-Data-Processing-Tools\\ClientApp\\Automated Data Processing Tools\\ClientApp\\ClientApp.csproj",
+  "projectFilePath": "C:\\Users\\dinesh\\Documents\\GitHub\\CSharpTraining\\GuptaDinesh\\Theme1_API-Integration-and-Automated-Data-Processing-Tools\\Automated Data Processing Tools\\ClientApp\\ClientApp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\dinesh\\.nuget\\packages\\serilog\\4.3.1\\serilog.4.3.1.nupkg.sha512",
     "C:\\Users\\dinesh\\.nuget\\packages\\serilog.sinks.file\\7.0.0\\serilog.sinks.file.7.0.0.nupkg.sha512"
