@@ -7,31 +7,21 @@ namespace ServerApp.Logging;
 
     public static class LoggerConfig
     {
-        private const string LogFile = "server.log";
-
-        public static void Info(string msg)
-        {
-            Write("INFO", msg);
-        }
-
-        public static void Warn(string msg)
-        {
-            Write("WARN", msg);
-        }
-
-        public static void Error(string msg)
-        {
-            Write("ERROR", msg);
-        }
-
-        private static void Write(string level, string msg)
-        {
-            string line =
-                $"{DateTime.Now:yyyy-MM-dd HH:mm:ss} [{level}] {msg}";
-
-            File.AppendAllText(
-                LogFile,
-                line + Environment.NewLine);
-        }
+    public static void Init()
+    {
+        Log.Logger = new LoggerConfiguration()
+            .MinimumLevel.Information()
+            .WriteTo.File(
+                "logs/app-.log",
+                rollingInterval: RollingInterval.Day,
+                outputTemplate: "[{Timestamp:HH:mm:ss} {Level:u3}] {Message:lj}{NewLine}{Exception}"
+            )
+            .CreateLogger();
     }
+
+    public static void Close()
+    {
+        Log.CloseAndFlush();
+    }
+}
 

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ServerApp.Models
 {
-    class DeviceLog
+    public class DeviceLog
     {
         
         public int Id { get; set; }

@@ -1,19 +1,19 @@
 ﻿using Dapper;
 using Microsoft.Data.SqlClient;
+using Serilog;
 using ServerApp.Models;
+using ServerApp.Repositories;
 using System;
 using System.Collections.Generic;
-using System.Net.NetworkInformation;
 using System.Text;
+using System.Text.Json;
 
 namespace ServerApp.Repositories
 {
-    class DeviceLogRepository : DeviceLog
+    class DeviceLogRepository
     {
         //DB接続
         //SQL　一覧表示　追加　更新　削除
-        public string connectionString =
-             "Server=(localdb)\\MSSQLLocalDB;Database=TestDB;Trusted_Connection=True;";
 
         private readonly string _connectionString;
 
@@ -22,16 +22,36 @@ namespace ServerApp.Repositories
             _connectionString = connectionString;
         }
 
-        public IEnumerable<DeviceLog> GetAll()
-        {
-            using var con = new SqlConnection(_connectionString);
 
-            return con.Query<DeviceLog>(
-                "SELECT * FROM DeviceLogs");
+
+
+
+        public async Task<IEnumerable<DeviceLog>> GetAll()
+        {
+            try
+            {
+                Log.Information("GetAll start");
+                using var con = new SqlConnection(_connectionString);
+
+                return await con.QueryAsync<DeviceLog>("SELECT * FROM DeviceLogs");
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex,"GetAll failed");
+                return Enumerable.Empty<DeviceLog>();
+            }
         }
 
-        public int Add(DeviceLog log)
+
+
+        public async Task<int> Add(DeviceLog log)
         {
+            if (log == null)
+                throw new ArgumentNullException(nameof(log));
+
+            Log.Information("Add start: {@Log}", log);
+
+
             using var con = new SqlConnection(_connectionString);
 
             string sql = @"
@@ -50,11 +70,19 @@ namespace ServerApp.Repositories
             @Timestamp
         )";
 
-            return con.Execute(sql, log);
+            return await con.ExecuteAsync(sql, log);
         }
 
-        public int Update(DeviceLog log)
+
+
+
+        public  async Task<int> Update(DeviceLog log)
         {
+            if (log == null)
+                throw new ArgumentNullException(nameof(log));
+
+            Log.Information("Update start: {@Log}", log);
+
             using var con = new SqlConnection(_connectionString);
 
             string sql = @"
@@ -65,14 +93,20 @@ namespace ServerApp.Repositories
                 ErrorCode=@ErrorCode
             WHERE Id=@Id";
 
-            return con.Execute(sql, log);
+            return await con.ExecuteAsync(sql, log);
         }
 
-        public int Delete(int id)
+
+
+
+
+        public async Task<int> Delete(int id)
         {
+            Log.Information("Delete id: {Id}", id);
+
             using var con = new SqlConnection(_connectionString);
 
-            return con.Execute(
+            return await con.ExecuteAsync(
                 "DELETE FROM DeviceLogs WHERE Id=@Id",
                 new { Id = id });
         }
@@ -80,4 +114,3 @@ namespace ServerApp.Repositories
 
 
 }
-
