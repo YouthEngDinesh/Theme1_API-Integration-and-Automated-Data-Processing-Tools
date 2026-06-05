@@ -1,0 +1,11 @@
+2026-06-05 17:50:32.217 +09:00 [INF] クライアントアプリが起動しました
+2026-06-05 17:50:42.597 +09:00 [INF] Sending Request: GetAll
+2026-06-05 17:50:42.759 +09:00 [INF] Response Status: "OK"
+2026-06-05 17:50:42.761 +09:00 [INF] Response Content: {"Success":false,"Message":"Invalid JSON"}
+2026-06-05 17:51:19.258 +09:00 [INF] Sending Request: Add
+2026-06-05 17:51:19.267 +09:00 [INF] Response Status: "OK"
+2026-06-05 17:51:19.267 +09:00 [INF] Response Content: {"Success":false,"Message":"Invalid JSON"}
+2026-06-05 18:20:25.254 +09:00 [INF] クライアントアプリが起動しました
+2026-06-05 18:20:33.218 +09:00 [INF] Sending Request: GetAll
+2026-06-05 18:20:33.356 +09:00 [INF] Response Status: "OK"
+2026-06-05 18:20:33.358 +09:00 [INF] Response Content: {"Success":false,"Message":"Invalid JSON"}
