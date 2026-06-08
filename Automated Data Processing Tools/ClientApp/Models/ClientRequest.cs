@@ -4,7 +4,8 @@ using System.Text;
 
 namespace ClientApp.Models
 {
-     class ClientRequest
+    // クライアントからサーバーへのリクエストを表すクラス
+    class ClientRequest
     {
         public string Action { get; set; }
 

@@ -5,10 +5,12 @@ using Serilog;
 
 namespace ServerApp.Logging
 {
+    // Serilogの設定を行うクラス
     public static class LoggerConfig
     {
         public static void Configure()
         {
+            // ログ出力設定の初期化
             Log.Logger = new LoggerConfiguration()
                  .MinimumLevel.Information()
                  .WriteTo.File(

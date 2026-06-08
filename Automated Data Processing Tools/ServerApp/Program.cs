@@ -33,6 +33,7 @@ namespace ServerApp
             Console.WriteLine("=================================================");
             Console.WriteLine();
 
+            // クライアントからのリクエストを常時監視
             while (true)
             {
                 Console.WriteLine();
@@ -46,10 +47,14 @@ namespace ServerApp
             }
         }
 
+        // クライアントからのリクエストを処理するメソッド
         static void ProcessRequest(HttpListenerContext context,DeviceLogRepository repository)
         {
+            //HTTPリクエスト情報を取得
             HttpListenerRequest request = context.Request;
+            // HTTPレスポンス情報を取得
             HttpListenerResponse response = context.Response;
+            // POSTメソッド以外は受け付けない
             if (request.HttpMethod != "POST")
             {
                 Console.WriteLine();
@@ -71,6 +76,7 @@ namespace ServerApp
 
             try
             {
+                // クライアントから送信されたJSONデータを取得
                 using var reader = new StreamReader(request.InputStream);
                 string json = reader.ReadToEnd();
                 Console.WriteLine();
@@ -79,6 +85,7 @@ namespace ServerApp
                 Console.WriteLine();
 
                 Log.Information("Request Received: {Json}", json);
+                // JSON文字列をリクエストモデルへ変換
                 var requestObject = JsonSerializer.Deserialize<ClientRequest>(json);
 
                 Console.WriteLine("[PROCESSING]");
@@ -87,7 +94,7 @@ namespace ServerApp
 
                 ApiResponse apiResponse = HandleAction(requestObject, repository);
 
-
+                // 処理結果をJSON形式へ変換
                 string responseJson = JsonSerializer.Serialize(apiResponse);
                 Console.WriteLine();
                 Console.ForegroundColor = ConsoleColor.Cyan;
@@ -99,6 +106,7 @@ namespace ServerApp
                 response.ContentType ="application/json";
                 response.StatusCode = (int)HttpStatusCode.OK;
                 response.ContentLength64 = buffer.Length;
+                // クライアントへレスポンスを返却
                 response.OutputStream.Write(buffer,  0, buffer.Length);
                 Console.WriteLine("[SUCCESS]");
                 Console.WriteLine("Response sent to client.");
@@ -116,6 +124,7 @@ namespace ServerApp
             }
         }
 
+        // クライアントからのリクエスト内容に応じて、データベース操作を実行するメソッド
         static ApiResponse HandleAction( ClientRequest request,DeviceLogRepository repository)
         {
             switch (request.Action)
