@@ -7,7 +7,8 @@ using Serilog;
 
 namespace ClientApp.Services
 {
- public class ApiClientService
+    // HTTP通信を行うサービスクラス
+    public class ApiClientService
     {
         //クライアントがサーバーにリクエストを送信するためのサービスクラス
         private readonly HttpClient _client = new();
@@ -17,20 +18,21 @@ namespace ClientApp.Services
             {
             //リクエストの内容をログに記録
             Log.Information( "Sending Request: {Action}",request.Action);
-            //リクエストオブジェクトをJSON形式にシリアライズ
+            // リクエストデータをJSONへ変換
             string json = JsonSerializer.Serialize(request);
 
                 var content = new StringContent(
                         json,
                         Encoding.UTF8,
                         "application/json");
-            //サーバーにPOSTリクエストを送信し、レスポンスを受け取る
+            // サーバーへPOSTリクエスト送信
             var response = await _client.PostAsync( "http://localhost:8080/",content);
             Log.Information("Response Status: {Status}",response.StatusCode);
-            //レスポンスの内容を文字列として読み取る
+            // サーバーからのレスポンスを取得
             string responseJson = await response.Content.ReadAsStringAsync();
-            //レスポンスの内容をログに記録
+            // 通信開始ログ
             Log.Information("Response Content: {Content}", responseJson);
+            // JSONレスポンスをオブジェクトへ変換
             return JsonSerializer
                 .Deserialize<ApiResponse>(
                     responseJson,

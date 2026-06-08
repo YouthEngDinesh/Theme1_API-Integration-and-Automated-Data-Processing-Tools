@@ -4,16 +4,18 @@ using System.Text;
 
 namespace ServerApp.Models
 {
-    internal class ApiResponse
+    //  APIのレスポンスを表すクラス
+  class ApiResponse
     {
-        // bool Success   string Message    object Data
 
+        // APIリクエストの成功・失敗を示すプロパティ
         public bool Success { get; set; }
 
-
+        
+        // APIリクエストの結果メッセージを示すプロパティ 
         public string Message { get; set; } = string.Empty;
 
-
+        // APIリクエストの結果データを示すプロパティ
         public object? Data { get; set; }
 
     }

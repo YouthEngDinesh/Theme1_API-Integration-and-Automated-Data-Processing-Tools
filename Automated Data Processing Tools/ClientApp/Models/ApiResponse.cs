@@ -4,6 +4,7 @@ using System.Text;
 
 namespace ClientApp.Models
 {
+    // サーバーからのレスポンスを表すクラス
     internal class ApiResponse
     {
         public bool Success { get; set; }
