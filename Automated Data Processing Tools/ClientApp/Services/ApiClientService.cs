@@ -26,22 +26,32 @@ namespace ClientApp.Services
                         Encoding.UTF8,
                         "application/json");
             // サーバーへPOSTリクエスト送信
-            var response = await _client.PostAsync( "http://localhost:8080/",content);
-            Log.Error("Response Status: {Status}",response.StatusCode);
-            //var response1 = await _client.GetAsync( "http://localhost:8080/");
-            Log.Information("Response Status: {Status}",response.StatusCode);
-            // サーバーからのレスポンスを取得
-            string responseJson = await response.Content.ReadAsStringAsync();
-            // 通信開始ログ
-            Log.Information("Response Content: {Content}", responseJson);
-            // JSONレスポンスをオブジェクトへ変換
-            return JsonSerializer
-                .Deserialize<ApiResponse>(
-                    responseJson,
-                    new JsonSerializerOptions
-                    {
-                        PropertyNameCaseInsensitive = true
-                    });
+            try
+            {
+
+                var response = await _client.PostAsync("http://localhost:8080/", content);
+                Log.Error("Response Status: {Status}", response.StatusCode);
+                //var response1 = await _client.GetAsync( "http://localhost:8080/");
+                Log.Information("Response Status: {Status}", response.StatusCode);
+                // サーバーからのレスポンスを取得
+                string responseJson = await response.Content.ReadAsStringAsync();
+                // 通信開始ログ
+                Log.Information("Response Content: {Content}", responseJson);
+                // JSONレスポンスをオブジェクトへ変換
+                return JsonSerializer
+                    .Deserialize<ApiResponse>(
+                        responseJson,
+                        new JsonSerializerOptions
+                        {
+                            PropertyNameCaseInsensitive = true
+                        });
+            }
+            catch (Exception ex) 
+            {
+                Log.Error(ex, "サーバーへ接続できませんでした。");
+                return null;
+
+            }
         }
     
     }

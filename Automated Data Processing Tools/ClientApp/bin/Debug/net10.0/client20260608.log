@@ -92,3 +92,23 @@
 2026-06-08 13:12:31.889 +09:00 [INF] Sending Request: GetAll
 2026-06-08 13:13:40.571 +09:00 [INF] クライアントアプリが起動しました
 2026-06-08 13:13:44.459 +09:00 [INF] Sending Request: GetAll
+2026-06-08 13:23:16.985 +09:00 [INF] クライアントアプリが起動しました
+2026-06-08 13:23:21.889 +09:00 [INF] Sending Request: GetAll
+2026-06-08 13:23:26.119 +09:00 [ERR] サーバーへ接続できませんでした。
+System.Net.Http.HttpRequestException: 対象のコンピューターによって拒否されたため、接続できませんでした。 (localhost:8080)
+ ---> System.Net.Sockets.SocketException (10061): 対象のコンピューターによって拒否されたため、接続できませんでした。
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.CreateHttp11ConnectionAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.InjectNewHttp11ConnectionAsync(QueueItem queueItem)
+   at System.Threading.Tasks.TaskCompletionSourceWithCancellation`1.WaitWithCancellationAsync(CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithVersionDetectionAndRetryAsync(HttpRequestMessage request, Boolean async, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.DiagnosticsHandler.SendAsyncCore(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.RedirectHandler.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.SocketsHttpHandler.<SendAsync>g__CreateHandlerAndSendAsync|115_0(HttpRequestMessage request, CancellationToken cancellationToken)
+   at System.Net.Http.HttpClient.<SendAsync>g__Core|83_0(HttpRequestMessage request, HttpCompletionOption completionOption, CancellationTokenSource cts, Boolean disposeCts, CancellationTokenSource pendingRequestsCts, CancellationToken originalCancellationToken)
+   at ClientApp.Services.ApiClientService.SendAsync(ClientRequest request) in C:\Users\Shibuyayuki\Desktop\Theme1_API-Integration-and-Automated-Data-Processing-Tools\Automated Data Processing Tools\ClientApp\Services\ApiClientService.cs:line 32
