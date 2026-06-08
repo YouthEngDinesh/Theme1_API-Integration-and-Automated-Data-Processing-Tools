@@ -77,3 +77,18 @@
 2026-06-08 10:18:33.877 +09:00 [INF] Sending Request: GetAll
 2026-06-08 10:18:33.882 +09:00 [INF] Response Status: "OK"
 2026-06-08 10:18:33.883 +09:00 [INF] Response Content: {"Success":true,"Message":"Records Returned","Data":[{"Id":1,"DeviceName":"Device-A","Amount":1200.00,"ErrorCode":"","Timestamp":"2026-06-04T11:19:11.37"},{"Id":2,"DeviceName":"Device-B","Amount":5500.00,"ErrorCode":"E101","Timestamp":"2026-06-04T11:19:11.37"},{"Id":3,"DeviceName":"Device-C","Amount":3400.00,"ErrorCode":"","Timestamp":"2026-06-04T11:19:11.37"},{"Id":4,"DeviceName":"Device-D","Amount":7800.00,"ErrorCode":"E205","Timestamp":"2026-06-04T11:19:11.37"},{"Id":5,"DeviceName":"Device-E","Amount":2100.00,"ErrorCode":"","Timestamp":"2026-06-04T11:19:11.37"},{"Id":1003,"DeviceName":"Device-W","Amount":455.00,"ErrorCode":"E333","Timestamp":"2026-06-08T10:04:20.087"},{"Id":1004,"DeviceName":"Device-J","Amount":2234.00,"ErrorCode":"E111","Timestamp":"2026-06-08T10:07:42.817"}]}
+2026-06-08 11:51:58.959 +09:00 [INF] クライアントアプリが起動しました
+2026-06-08 11:52:04.146 +09:00 [INF] Sending Request: GetAll
+2026-06-08 11:52:05.167 +09:00 [INF] Response Status: "MethodNotAllowed"
+2026-06-08 11:52:05.169 +09:00 [INF] Response Content: 
+2026-06-08 11:56:26.154 +09:00 [INF] クライアントアプリが起動しました
+2026-06-08 11:56:44.404 +09:00 [INF] Sending Request: Add
+2026-06-08 13:08:37.254 +09:00 [INF] クライアントアプリが起動しました
+2026-06-08 13:08:50.530 +09:00 [INF] Sending Request: GetAll
+2026-06-08 13:10:51.830 +09:00 [INF] クライアントアプリが起動しました
+2026-06-08 13:12:18.178 +09:00 [INF] Sending Request: Delete
+2026-06-08 13:12:19.138 +09:00 [INF] Response Status: "OK"
+2026-06-08 13:12:19.140 +09:00 [INF] Response Content: {"Success":true,"Message":"Deleted","Data":null}
+2026-06-08 13:12:31.889 +09:00 [INF] Sending Request: GetAll
+2026-06-08 13:13:40.571 +09:00 [INF] クライアントアプリが起動しました
+2026-06-08 13:13:44.459 +09:00 [INF] Sending Request: GetAll
