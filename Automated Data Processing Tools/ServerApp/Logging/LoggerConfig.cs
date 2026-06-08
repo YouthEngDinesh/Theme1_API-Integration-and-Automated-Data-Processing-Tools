@@ -12,7 +12,7 @@ namespace ServerApp.Logging
             Log.Logger = new LoggerConfiguration()
                  .MinimumLevel.Information()
                  .WriteTo.File(
-                     "client.log",
+                     "Server.log",
                      rollingInterval: RollingInterval.Day)
                  .CreateLogger();
         }
