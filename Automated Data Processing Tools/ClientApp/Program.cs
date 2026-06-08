@@ -11,7 +11,7 @@ namespace ClientApp
     class Program
     {
 
-        // Cached JsonSerializerOptions to address CA1869
+        // JsonSerializerOptions を再利用のためにキャッシュする
         private static readonly JsonSerializerOptions JsonOptions = new JsonSerializerOptions
         {
             PropertyNameCaseInsensitive = true
@@ -26,7 +26,8 @@ namespace ClientApp
             //
             var api = new ApiClientService();
 
-            // Save the original color to restore it later
+
+            // メニューを表示してユーザー操作を受付
             ConsoleColor originalColor = Console.ForegroundColor;
             //コンソールに表示
             Console.ForegroundColor = ConsoleColor.Cyan;
@@ -46,7 +47,7 @@ namespace ClientApp
             Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine("=========================================");
 
-            // Reset back to original color
+            
             Console.ForegroundColor = originalColor;
 
             while (true)
@@ -93,7 +94,9 @@ namespace ClientApp
             }
         }
 
-
+        // サーバーから全件データを取得する共通メソッド
+        // ***********LINQ操作******************
+       
         static async Task<List<DeviceLog>>
        GetRecords(ApiClientService api)
         {
@@ -119,6 +122,7 @@ namespace ClientApp
                 ?? new List<DeviceLog>();
         }
 
+        // ErrorCodeが設定されているデータを抽出
         static async Task ShowErrorRecords(ApiClientService api)
         {
             var records = await GetRecords(api);
@@ -134,11 +138,10 @@ namespace ClientApp
                     $"{x.DeviceName} | {x.ErrorCode}"));
         }
 
-        static async Task ShowAmountDesc(
-    ApiClientService api)
+        // Amountを降順で並び替え
+        static async Task ShowAmountDesc(ApiClientService api)
         {
-            var records =
-                await GetRecords(api);
+            var records = await GetRecords(api);
 
             //LINQ Operation 2 .OrderByDescending()
             var sorted =
@@ -149,18 +152,18 @@ namespace ClientApp
 
             Console.WriteLine();
             Console.WriteLine(
-                "===== Amount Desc =====");
+                "===== 金額 Desc =====");
 
             sorted.ForEach(x =>
                 Console.WriteLine(
                     $"{x.DeviceName} : {x.Amount}"));
         }
 
-        static async Task ShowAverage(
-    ApiClientService api)
+        // エラー無しデータの平均金額を算出
+
+        static async Task ShowAverage(ApiClientService api)
         {
-            var records =
-                await GetRecords(api);
+            var records = await GetRecords(api);
 
 
             //LINQ Operation 3 .where() ,.Average() Calculate average amount for records without errors.
@@ -176,27 +179,22 @@ namespace ClientApp
             Console.WriteLine();
 
             Console.WriteLine(
-                $"Average Amount = {avg:F2}");
+                $"平均金額 = {avg:F2}");
         }
 
-        static async Task Add(
-        ApiClientService api)
+        // 登録用データを入力
+        static async Task Add(ApiClientService api)
         {
             Console.Write("Name: ");
-            string name =
-                Console.ReadLine();
+            string name =Console.ReadLine();
 
             Console.Write("Amount: ");
-            decimal amount =
-                decimal.Parse(
-                    Console.ReadLine());
+            decimal amount = decimal.Parse(Console.ReadLine());
 
             Console.Write("Error: ");
-            string error =
-                Console.ReadLine();
+            string error = Console.ReadLine();
 
-            var request =
-                new ClientRequest
+            var request = new ClientRequest
                 {
                     Action = "Add",
 
@@ -209,14 +207,12 @@ namespace ClientApp
                         }
                 };
 
-            var response =
-                await api.SendAsync(
-                    request);
+            var response = await api.SendAsync(request);
 
-            Console.WriteLine(
-                response?.Message);
+            Console.WriteLine(response?.Message);
         }
 
+        // サーバーから全件データを取得
         static async Task GetAll(ApiClientService api)
         {
             var request =
@@ -225,8 +221,7 @@ namespace ClientApp
                     Action = "GetAll"
                 };
 
-            var response =
-                await api.SendAsync(request);
+            var response = await api.SendAsync(request);
 
             Console.WriteLine(response?.Message);
             string json = response?.Data?.ToString();
@@ -238,9 +233,8 @@ namespace ClientApp
                 return;
             }
 
-            // Reuse cached JsonOptions and guard against null result
-            var records =
-            JsonSerializer.Deserialize<List<DeviceLog>>(json, JsonOptions)
+            // キャッシュされたJsonOptionsを再利用し、null結果を防ぐ
+            var records = JsonSerializer.Deserialize<List<DeviceLog>>(json, JsonOptions)
             ?? new List<DeviceLog>();
 
             Console.WriteLine();
@@ -267,8 +261,8 @@ namespace ClientApp
                 "--------------------------------------------------------------");
         }
 
-        static async Task Update(
-        ApiClientService api)
+        // 更新対象データを入力
+        static async Task Update(ApiClientService api)
         {
             Console.Write("Id: ");
             int id = int.Parse(Console.ReadLine());
@@ -295,15 +289,12 @@ namespace ClientApp
                     }
                 };
 
-            var response =
-                await api.SendAsync(
-                    request);
-
-            Console.WriteLine(
-                response?.Message);
+            var response = await api.SendAsync(request);
+            Console.WriteLine(response?.Message);
         }
 
 
+        // 削除対象IDを入力
         static async Task Delete(ApiClientService api)
         {
             Console.Write("Id: ");
@@ -314,11 +305,8 @@ namespace ClientApp
                     Action = "Delete",
                     Id = id
                 };
-            var response =
-                await api.SendAsync(
-                    request);
-            Console.WriteLine(
-                response?.Message);
+            var response = await api.SendAsync(request);
+            Console.WriteLine(response?.Message);
 
         }
 

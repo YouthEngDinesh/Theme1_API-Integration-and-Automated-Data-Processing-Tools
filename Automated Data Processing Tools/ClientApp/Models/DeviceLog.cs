@@ -4,7 +4,8 @@ using System.Text;
 
 namespace ClientApp.Models
 {
-     class DeviceLog
+    // デバイスのログを表すクラス
+    class DeviceLog
     {
         public int Id { get; set; }
         public string DeviceName { get; set; }
