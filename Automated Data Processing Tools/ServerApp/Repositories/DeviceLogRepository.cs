@@ -12,7 +12,7 @@ namespace ServerApp.Repositories
     class DeviceLogRepository
     {
         private readonly string _connectionString = @"Server=(localdb)\MSSQLLocalDB;
-                                                         Database=TeamTask1_test;
+                                                         Database=TeamTask_test;
                                                          Trusted_Connection=True;
                                                          TrustServerCertificate=True;";
 

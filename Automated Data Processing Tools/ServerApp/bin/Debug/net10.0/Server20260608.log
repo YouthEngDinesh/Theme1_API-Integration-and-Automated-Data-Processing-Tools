@@ -1,1 +1,54 @@
-2026-06-08 13:12:18.252 +09:00 [INF] Request Received: {"Action":"Delete","Id":1005,"DeviceLog":null}
+2026-06-08 14:36:57.152 +09:00 [INF] Request Received: {"Action":"Add","Id":0,"DeviceLog":{"Id":0,"DeviceName":"Device-N","Amount":3450,"ErrorCode":"E100","Timestamp":"0001-01-01T00:00:00"}}
+2026-06-08 14:40:17.819 +09:00 [INF] Request Received: {"Action":"GetAll","Id":0,"DeviceLog":null}
+2026-06-08 15:20:39.775 +09:00 [INF] Request Received: {"Action":"Add","Id":0,"DeviceLog":{"Id":0,"DeviceName":"Device-Z","Amount":2343,"ErrorCode":"E222","Timestamp":"0001-01-01T00:00:00"}}
+2026-06-08 15:21:10.600 +09:00 [INF] Request Received: {"Action":"GetAll","Id":0,"DeviceLog":null}
+2026-06-08 15:22:17.734 +09:00 [INF] Request Received: {"Action":"Update","Id":0,"DeviceLog":{"Id":1012,"DeviceName":"Device-M","Amount":12334,"ErrorCode":"E122","Timestamp":"0001-01-01T00:00:00"}}
+2026-06-08 15:22:44.714 +09:00 [INF] Request Received: {"Action":"Delete","Id":1012,"DeviceLog":null}
+2026-06-08 15:23:11.804 +09:00 [INF] Request Received: {"Action":"GetAll","Id":0,"DeviceLog":null}
+2026-06-08 15:23:29.104 +09:00 [INF] Request Received: {"Action":"GetAll","Id":0,"DeviceLog":null}
+2026-06-08 15:23:40.748 +09:00 [INF] Request Received: {"Action":"GetAll","Id":0,"DeviceLog":null}
+2026-06-08 16:42:50.858 +09:00 [INF] Request Received: {"Action":"Add","Id":0,"DeviceLog":{"Id":0,"DeviceName":"Device-L","Amount":3344,"ErrorCode":"E344","Timestamp":"0001-01-01T00:00:00"}}
+2026-06-08 16:48:06.282 +09:00 [INF] Request Received: {"Action":"GetAll","Id":0,"DeviceLog":null}
+2026-06-08 16:48:43.119 +09:00 [INF] Request Received: {"Action":"Update","Id":0,"DeviceLog":{"Id":1013,"DeviceName":"Device-K","Amount":2334,"ErrorCode":"E222","Timestamp":"0001-01-01T00:00:00"}}
+2026-06-08 16:48:58.219 +09:00 [INF] Request Received: {"Action":"GetAll","Id":0,"DeviceLog":null}
+2026-06-08 16:49:30.077 +09:00 [INF] Request Received: {"Action":"GetAll","Id":0,"DeviceLog":null}
+2026-06-08 16:49:44.594 +09:00 [INF] Request Received: {"Action":"GetAll","Id":0,"DeviceLog":null}
+2026-06-08 16:51:20.400 +09:00 [INF] Request Received: {"Action":"GetAll","Id":0,"DeviceLog":null}
+2026-06-08 16:51:50.328 +09:00 [INF] Request Received: {"Action":"Add","Id":0,"DeviceLog":{"Id":0,"DeviceName":"Device-X","Amount":334,"ErrorCode":"E3233","Timestamp":"0001-01-01T00:00:00"}}
+2026-06-08 16:52:32.251 +09:00 [INF] Request Received: {"Action":"GetAll","Id":0,"DeviceLog":null}
+2026-06-08 16:52:32.719 +09:00 [WRN] Invalid HTTP Method: GET
+2026-06-08 16:55:09.744 +09:00 [INF] Request Received: {"Action":"GetAll","Id":0,"DeviceLog":null}
+2026-06-08 16:55:20.098 +09:00 [ERR] Server Error
+Microsoft.Data.SqlClient.SqlException (0x80131904): Cannot open database "TeamTask_test" requested by the login. The login failed.
+Login failed for user '50-02-0187\dinesh'.
+   at Microsoft.Data.SqlClient.Connection.SqlConnectionInternal.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, SqlCommand command, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at Microsoft.Data.SqlClient.Connection.SqlConnectionInternal.CompleteLogin(Boolean enlistOK)
+   at Microsoft.Data.SqlClient.Connection.SqlConnectionInternal.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, TimeoutTimer timeout, Boolean withFailover)
+   at Microsoft.Data.SqlClient.Connection.SqlConnectionInternal.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
+   at Microsoft.Data.SqlClient.Connection.SqlConnectionInternal.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
+   at Microsoft.Data.SqlClient.Connection.SqlConnectionInternal..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, DbConnectionPoolGroupProviderInfo providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, IDbConnectionPool pool, Func`3 accessTokenCallback, SspiContextProvider sspiContextProvider)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionPoolGroupProviderInfo poolGroupProviderInfo, IDbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreatePooledConnection(DbConnection owningConnection, IDbConnectionPool pool, DbConnectionPoolKey poolKey, DbConnectionOptions options, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 taskCompletionSource, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, SqlConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, SqlConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open()
+   at Dapper.SqlMapper.QueryImpl[T](IDbConnection cnn, CommandDefinition command, Type effectiveType)+MoveNext() in /_/Dapper/SqlMapper.cs:line 1216
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at Dapper.SqlMapper.Query[T](IDbConnection cnn, String sql, Object param, IDbTransaction transaction, Boolean buffered, Nullable`1 commandTimeout, Nullable`1 commandType) in /_/Dapper/SqlMapper.cs:line 848
+   at ServerApp.Repositories.DeviceLogRepository.GetAll() in C:\Users\dinesh\Documents\GitHub\CSharpTraining\GuptaDinesh\Theme1_API-Integration-and-Automated-Data-Processing-Tools\Automated Data Processing Tools\ServerApp\Repositories\DeviceLogRepository.cs:line 24
+   at ServerApp.Program.HandleAction(ClientRequest request, DeviceLogRepository repository) in C:\Users\dinesh\Documents\GitHub\CSharpTraining\GuptaDinesh\Theme1_API-Integration-and-Automated-Data-Processing-Tools\Automated Data Processing Tools\ServerApp\Program.cs:line 153
+   at ServerApp.Program.ProcessRequest(HttpListenerContext context, DeviceLogRepository repository) in C:\Users\dinesh\Documents\GitHub\CSharpTraining\GuptaDinesh\Theme1_API-Integration-and-Automated-Data-Processing-Tools\Automated Data Processing Tools\ServerApp\Program.cs:line 95
+ClientConnectionId:044d08a7-b350-4a9a-ac89-d06765531d1e
+Error Number:4060,State:1,Class:11
