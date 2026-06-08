@@ -15,18 +15,20 @@ namespace ServerApp
         static void Main(string[] args)
         {
             LoggerConfig.Configure();  // Serilogの設定を行う_Configure the Serilog
+            // データベースアクセス用リポジトリ生成
             var repository = new DeviceLogRepository();
+            // HTTPサーバーの待ち受け設定
             HttpListener listener = new HttpListener();
-
+            // localhost:8080 でクライアントからの接続を待機
             listener.Prefixes.Add("http://localhost:8080/");
             listener.Start();
             Console.WriteLine("=================================================");
             Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine(" ServerApp Started");
+            Console.WriteLine(" ServerApp 開始しました");
             Console.WriteLine("=================================================");
             Console.WriteLine($" Port      : 8080");
             Console.WriteLine($" StartedAt : {DateTime.Now}");
-            Console.WriteLine(" Status    : Waiting for client requests...");
+            Console.WriteLine(" Status    :  クライアントからのリクエストを待機中...");
             Console.ResetColor();
             Console.WriteLine("=================================================");
             Console.WriteLine();
@@ -35,7 +37,7 @@ namespace ServerApp
             {
                 Console.WriteLine();
                 Console.WriteLine("----------------------------------------------");
-                Console.WriteLine("Waiting for next request...");
+                Console.WriteLine("次のリクエストをお待ちしています...");
                 Console.WriteLine("----------------------------------------------");
 
                 HttpListenerContext context = listener.GetContext();
@@ -122,10 +124,10 @@ namespace ServerApp
 
                     Console.WriteLine("[DATABASE]");
                     Console.ForegroundColor = ConsoleColor.Yellow;
-                    Console.WriteLine("Adding new record...");
+                    Console.WriteLine("新しいレコードを追加する...");
                     repository.Add(request.DeviceLog);
 
-                    Console.WriteLine("Insert completed.");
+                    Console.WriteLine("挿入が完了しました。.");
                     Console.ResetColor();
                     return new ApiResponse
                     {
@@ -137,10 +139,10 @@ namespace ServerApp
 
                     Console.WriteLine("[DATABASE]");
                     Console.ForegroundColor = ConsoleColor.Yellow;
-                    Console.WriteLine("Fetching all records...");
+                    Console.WriteLine("すべてのレコードを取得する...");
 
                     var records = repository.GetAll();
-                    Console.WriteLine($"Records Found : {records.Count}");
+                    Console.WriteLine($"レコード数 : {records.Count}");
                     Console.ResetColor();
                     return new ApiResponse
                     {
@@ -152,11 +154,11 @@ namespace ServerApp
                 case "Update":
                     Console.WriteLine("[DATABASE]");
                     Console.ForegroundColor = ConsoleColor.Yellow;
-                    Console.WriteLine("Updating record...");
+                    Console.WriteLine("レコードの更新中...");
 
                     repository.Update(request.DeviceLog);
                     
-                    Console.WriteLine("Update completed.");
+                    Console.WriteLine("更新が完了しました");
                     Console.ResetColor();
 
                     return new ApiResponse
@@ -169,10 +171,10 @@ namespace ServerApp
                     Console.WriteLine("[DATABASE]");
                     ConsoleColor originalColor = Console.ForegroundColor;
                     Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("Deleting record...");
+                    Console.WriteLine("レコードを削除中...");
 
                     repository.Delete(request.Id);
-                    Console.WriteLine("Delete completed.");
+                    Console.WriteLine("削除が完了しました。");
                     Console.ForegroundColor = originalColor;
 
                     return new ApiResponse
