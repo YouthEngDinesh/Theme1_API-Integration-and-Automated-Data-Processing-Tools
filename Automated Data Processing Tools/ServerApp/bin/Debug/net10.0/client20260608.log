@@ -1,0 +1,6 @@
+2026-06-08 09:22:26.746 +09:00 [INF] Request Received: {"Action":"GetAll","Id":0,"DeviceLog":null}
+2026-06-08 09:25:30.886 +09:00 [INF] Request Received: {"Action":"GetAll","Id":0,"DeviceLog":null}
+2026-06-08 09:40:35.330 +09:00 [INF] Request Received: {"Action":"Add","Id":0,"DeviceLog":{"Id":0,"DeviceName":"Device-X","Amount":2333,"ErrorCode":"E222","Timestamp":"0001-01-01T00:00:00"}}
+2026-06-08 09:41:08.248 +09:00 [INF] Request Received: {"Action":"GetAll","Id":0,"DeviceLog":null}
+2026-06-08 09:42:25.391 +09:00 [INF] Request Received: {"Action":"Add","Id":0,"DeviceLog":{"Id":0,"DeviceName":"Decvice-Z","Amount":23344,"ErrorCode":"E222","Timestamp":"0001-01-01T00:00:00"}}
+2026-06-08 09:44:01.012 +09:00 [INF] Request Received: {"Action":"Delete","Id":109,"DeviceLog":null}
